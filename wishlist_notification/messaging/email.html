@@ -1,0 +1,70 @@
+<style>
+    #products {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 60%;
+    }
+
+    #products td,
+    #products th {
+        border: 1px solid #ddd;
+        padding: 8px;
+        vertical-align:top;
+        text-align:left;
+    }
+
+    #products tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    #products tr:hover {
+        background-color: #ddd;
+    }
+
+    #products th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4CAF50;
+        color: white;
+    }
+</style>
+
+
+<a href="{{ wishlist.url }}">Visit {{wishlist.title}}</a>
+<br>
+<br>
+
+{% for result in results%}
+<br>
+<table id="products">
+    <tr>
+        <th>{{ result.title }}</th>
+        <th> Title </th>
+        <th> Price </th>
+        {% if 'New Products' not in result.title %}
+        <th> Compare </th>
+        <th> %Chg </th>
+        {% endif %}
+        <th> Chart </th>
+
+
+    </tr>
+    {% for product_id, product_details in result.products.items() %}
+    <tr>
+        <td><img src="{{ product_details['img_url'] }}"</img></td>
+        <td style="font-size:10"><a href="{{ product_details['url'] }}">{{ product_details["title"] }}</a></td>
+        <td>${{ product_details['price'] }}</td>
+        {% if 'New Products' not in result.title %}
+        <td> ${{ product_details['new_price'] }}</td>
+        <td> {{ product_details['pct_change'] }}</td>
+        {% endif %}
+        <td><a href="https://ca.camelcamelcamel.com/product/{{product_id}}#price-history">
+        <img border="0" alt="chart" src="https://charts.camelcamelcamel.com/ca/{{product_id}}/amazon.png?force=1&zero=0&w=358&h=430&desired=false&legend=1&ilt=1&tp=all&fo=1&lang=en" width="100" height="100">
+        </a></img></td>
+
+    </tr>
+    {% endfor %}
+</table>
+<br>
+{% endfor %}
