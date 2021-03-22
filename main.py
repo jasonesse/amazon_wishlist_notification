@@ -1,13 +1,3 @@
-"""
-for each wishlist,
-url data
-source data
-new?
-pricechange?
-pricematch?
-notify
-
-"""
 from wishlist_notification.controller import get_current_wishlist_details, get_wishlist_changes
 from config import AMAZON_WISHLISTS
 from wishlist_notification.messaging.notifier import notify

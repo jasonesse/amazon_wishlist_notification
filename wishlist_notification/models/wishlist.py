@@ -20,15 +20,7 @@ class ProductList():
     #     return product_dict
 
 class AMZNWishlist(ProductList):
-    '''
-    The Vehicle object contains lots of vehicles
-    :param arg: The arg is used for ...
-    :type arg: str
-    :param `*args`: The variable arguments are used for ...
-    :param `**kwargs`: The keyword arguments are used for ...
-    :ivar arg: This is where we store arg
-    :vartype arg: str
-    '''
+
     def __init__(self, url=""):
         super().__init__(self)
         self.url = url
