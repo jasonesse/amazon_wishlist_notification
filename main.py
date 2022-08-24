@@ -8,7 +8,7 @@ def main():
         current_wishlist = get_current_wishlist_details(url=wishlist_url)
         changes = get_wishlist_changes(current_wishlist)
         save(changes, current_wishlist)
-        notify(changes, current_wishlist)
+        notify(changes, current_wishlist, send=True)
 
 
 

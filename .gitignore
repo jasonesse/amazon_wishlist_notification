@@ -136,3 +136,7 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 /config.py
+wishlist_notification/messaging/token.pickle
+wishlist_notification/messaging/credentials.json
+wishlist_notification/data/1ZWTYTXYYCU4B.json
+wishlist_notification/data/1ZWTYTXYYCU4B.json
